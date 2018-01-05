@@ -1,0 +1,27 @@
+<html>
+	<head></head>
+	<body>
+		<script type="text/javascript">
+		/*
+		从函数外部读取局部变量
+		将局部变量的作用域延长
+		*/
+			function add(){
+				var count = 1000;
+				
+				function inner(){
+					count++;
+					alert(count);
+				}
+				return inner;
+			}
+			
+			var fAdd = add();
+			fAdd();
+			fAdd();
+			
+			//内存泄露
+			fAdd = null;
+		</script>
+	</body>
+</html>
